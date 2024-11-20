@@ -43,7 +43,7 @@ rm -rf "${TMP_DIR}"
 discord-chat-exporter-plus-cli exportguild -t "${TOKEN}" --include-threads All  -o "${TMP_DIR}" -f Json -g "${GUILD_ID}" --parallel 5
 
 if [ $? -ne 0 ]; then
-    sendNotification("Failed to extract messages from Guild")
+    sendNotification "Failed to extract messages from Guild"
 fi
 
 DST_NAME="$(date +%F).html"
