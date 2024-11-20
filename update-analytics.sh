@@ -7,7 +7,7 @@ NOTIFICATION_CHANNEL_ID=
 # Guild to analyse messages of
 GUILD_ID=
 # Directory to write exported messages to
-TMP_DIR=
+TMP_DIR="/tmp/discord-stats/"
 # Directory to write
 DST_DIR=
 # (Optional) Endpoint of analytics server for posting a link after finishing
@@ -62,9 +62,9 @@ fi
 if [ "$LINK_INDEX" = true ] ; then
     rm -f ${INDEX_FILE}
     ln -s ${DST_FILE} ${INDEX_FILE}
-    sendNotification "Analytics updated, ${ENDPOINT}/${DST_NAME}"
-else
     sendNotification "Analytics updated, ${ENDPOINT}"
+else
+    sendNotification "Analytics updated, ${ENDPOINT}/${DST_NAME}"
 fi
 
-rm -f "${TMP_FILE}"
+rm -rf "${TMP_DIR}"
